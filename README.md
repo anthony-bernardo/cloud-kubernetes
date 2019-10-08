@@ -6,11 +6,17 @@ Do all commands in group-8-instructions.txt
 
 # Create svc / deployment
 
+## svc
+
+`kubectl create -f frontend-svc.yaml`
+`kubectl create -f api-svc.yaml`
+`kubectl create -f redis-svc.yaml`
+
+## deployment
+
 `kubectl create -f frontend-deploy.yaml`
-`kubectl create -f frontend-deploy.yaml`
-`kubectl create -f frontend-deploy.yaml`
-`kubectl create -f frontend-deploy.yaml`
-`kubectl create -f frontend-deploy.yaml`
+`kubectl create -f api-deploy.yaml`
+`kubectl create -f redis-deploy.yaml`
 
 # Watch results
 
@@ -19,6 +25,16 @@ Do all commands in group-8-instructions.txt
 # Delete all pods (for demo)
 
 `kubectl delete --all pods`
+
+# Cleanup env
+
+`kubectl delete -f frontend-svc.yaml`
+`kubectl delete -f api-svc.yaml`
+`kubectl delete -f redis-svc.yaml`
+
+`kubectl delete deployment.apps/redis-deployment`
+`kubectl delete deployment.apps/api`
+`kubectl delete deployment.apps/frontend`
 
 # Answers
 
