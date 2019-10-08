@@ -1,0 +1,1 @@
+-> pas propre les deploy, code duplication, lier avec les pod.yml
