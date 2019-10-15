@@ -1,3 +1,5 @@
+# ANSWERS ARE IN BOTTOM OF DOCUMENT !
+
 # Setup
 
 Install kubectl
@@ -26,9 +28,39 @@ Do all commands in group-8-instructions.txt
 
 `watch kubectl get all`
 
+This should output something like that :
+
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/api-8b899f8f5-4nkkk         1/1     Running   0          24s
+pod/frontend-6566ddc7dc-cwbd9   1/1     Running   0          28s
+pod/frontend-6566ddc7dc-cxl5z   1/1     Running   0          28s
+pod/frontend-6566ddc7dc-z4w2m   1/1     Running   0          28s
+pod/redis-6c8d7db57b-dj6zk      1/1     Running   0          20s
+
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE
+service/api-svc        ClusterIP      10.100.71.252   <none>                                                                   8081/TCP       38s
+service/frontend-svc   LoadBalancer   10.100.111.49   a5457b5ffef1711e9b2390a897df827d-515519190.eu-west-1.elb.amazonaws.com   80:31977/TCP   42s
+service/redis-svc      ClusterIP      10.100.73.230   <none>                                                                   6379/TCP       33s
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/api        1/1     1            1           24s
+deployment.apps/frontend   3/3     3            3           28s
+deployment.apps/redis      1/1     1            1           20s
+
+NAME                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/api-8b899f8f5         1         1         1       24s
+replicaset.apps/frontend-6566ddc7dc   3         3         3       28s
+replicaset.apps/redis-6c8d7db57b      1         1         1       20s
+```
+
+You can browse the url returned by frontend-svc (exemple : http://a5457b5ffef1711e9b2390a897df827d-515519190.eu-west-1.elb.amazonaws.com) to use application.
+
 # Delete all pods (for demo)
 
 `kubectl delete --all pods`
+
+The pods are terminated and new ones are created instatly.
 
 # Cleanup env
 
