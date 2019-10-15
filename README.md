@@ -70,11 +70,23 @@ The pods are terminated and new ones are created instatly.
 
 `kubectl delete -f redis-svc.yaml`
 
-`kubectl delete deployment.apps/redis-deployment`
+`kubectl delete deployment.apps/redis`
 
 `kubectl delete deployment.apps/api`
 
 `kubectl delete deployment.apps/frontend`
+
+When finishing to call all commands, `kubectl get all` must output :
+
+```
+No resources found.
+```
+
+# Possible improvements
+
+There are some code duplication :
+
+The deploy's files `containers` are the same as pod's files `containers`
 
 # Answers
 
